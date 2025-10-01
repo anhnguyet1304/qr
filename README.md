@@ -12,7 +12,7 @@
 
 ## 🚀 1. Cài đặt
 
-Clone repo từ GitHub: git clone https://github.com/<your-username>/qr-attendance.git
+Clone repo từ GitHub: (git clone https://github.com/anhnguyet1304/qr.git)
 cd qr
 Cài dependencies:
 (
