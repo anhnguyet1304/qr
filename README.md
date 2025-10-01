@@ -1,16 +1,52 @@
-# React + Vite
+# 📱 QR Attendance App (React + Capacitor)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ứng dụng điểm danh bằng cách **quét mã QR** trên nền tảng **Web + iOS + Android**.  
+- Công nghệ: `React`, `Vite`, `Capacitor`, `@zxing/library`.  
+- Tính năng chính:
+  - Quét mã QR dạng `ATTEND:<MSSV>`.
+  - Lưu thông tin MSSV + thời gian điểm danh.
+  - Hiển thị lịch sử điểm danh.
+  - Xuất CSV và Reset danh sách (mở rộng).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 1. Cài đặt
 
-## React Compiler
+Clone repo từ GitHub: git clone https://github.com/<your-username>/qr-attendance.git
+cd qr
+Cài dependencies:
+(
+npm install
+)
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 2. Chạy Web (Vite Dev Server)
+(
+npm run dev
+)
+👉 Để chạy trên điện thoại trong cùng mạng LAN:
+Lấy IP LAN của máy tính (ipconfig hoặc ifconfig).
+Truy cập trên điện thoại:
+(
+http://<IP_LAN>:5173
+)
+Cho phép quyền camera khi trình duyệt yêu cầu.
+# 3. Build Mobile với Capacitor
+(npm install @capacitor/core @capacitor/cli
+npm install @capacitor/ios @capacitor/android
+npx cap init
+)
+Đồng bộ code sau khi build
+(npm run build
+npx cap copy
+npx cap sync
+)
+# 4.Xuất file CSV (mở rộng)
+Ứng dụng hỗ trợ xuất danh sách điểm danh ra file .csv để tải về.
 
-## Expanding the ESLint configuration
+# ✅Lưu ý
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Luôn chạy npm run build && npx cap sync trước khi mở iOS/Android.
+
+Khi test QR trên iOS Safari cần HTTPS hoặc localhost.
+
+Có thể deploy lên Netlify/Render để chạy như PWA trên iPhone.
